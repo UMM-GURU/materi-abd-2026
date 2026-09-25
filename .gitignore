@@ -1,0 +1,30 @@
+# Ignore semuanya
+*
+.ipynb_checkpoints/
+
+# Tetap sertakan folder
+!*/
+
+# Git configuration
+!.gitignore
+
+# README
+!README.md
+
+# PDF
+!*.pdf
+
+# Jupyter Notebook
+!*.ipynb
+
+# Jupyter Script
+!*.py
+
+# Docker
+!Dockerfile
+!docker-compose.yml
+!docker-compose.yaml
+!.dockerignore
+
+# Jangan sertakan checkpoint notebook
+**/.ipynb_checkpoints/**tugas1-template/

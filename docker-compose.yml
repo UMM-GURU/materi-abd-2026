@@ -1,0 +1,19 @@
+services:
+  jupyter:
+    build: .
+    container_name: bigdata-kuliah
+    command: ["start-notebook.py", "--ServerApp.token=", "--ServerApp.password="]
+    ports:
+      - "8888:8888"   # JupyterLab
+      - "8501:8501"   # Streamlit
+      - "8787:8787"   # Dask Dashboard
+    volumes:
+      - ./notebooks:/home/jovyan/work/notebooks
+      - ./data:/home/jovyan/work/data
+      - ./slides:/home/jovyan/work/slides
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - GRANT_SUDO=yes
+      # Akses tanpa token untuk penggunaan lokal di laptop mahasiswa.
+      - JUPYTER_TOKEN=
+    restart: unless-stopped
