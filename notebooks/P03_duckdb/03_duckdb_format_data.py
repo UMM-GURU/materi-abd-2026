@@ -57,7 +57,7 @@ status_list = ["selesai", "proses", "antrian", "ditolak", "batal"]
 data = {
     "id_layanan": range(N),
     "tanggal": pl.date_range(
-        pl.date(2023, 1, 1), pl.date(2024, 12, 31), interval="1h",
+        pl.date(2023, 1, 1), pl.date(2024, 12, 31), interval="1d",
         eager=True
     ).sample(N, with_replacement=True, seed=2026),
     "jenis_layanan": np.random.choice(layanan_list, N),
@@ -82,7 +82,7 @@ json_path = "/tmp/layanan_publik/layanan_sample.json"
 df.write_parquet(parquet_path)
 df.write_csv(csv_path)
 # Simpan 1000 baris sebagai JSON (JSON cocok untuk sample kecil)
-df.head(1_000).write_json(json_path, row_oriented=True)
+df.head(1_000).write_json(json_path)
 
 print(f"Dataset dibuat: {N:,} baris")
 print(f"  Parquet: {os.path.getsize(parquet_path)/1e6:.1f} MB")

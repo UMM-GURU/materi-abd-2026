@@ -27,4 +27,4 @@
 !.dockerignore
 
 # Jangan sertakan checkpoint notebook
-**/.ipynb_checkpoints/**tugas1-template/
+**/.ipynb_checkpoints/**
