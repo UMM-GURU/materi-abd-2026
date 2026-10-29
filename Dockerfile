@@ -11,6 +11,7 @@ USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     git \
+    graphviz \
     && rm -rf /var/lib/apt/lists/*
 
 # ===================================
@@ -25,10 +26,12 @@ RUN pip install --no-cache-dir \
     plotly>=6.0.0 \
     matplotlib>=3.9.0 \
     altair>=5.5.0 \
+    graphviz>=0.20.0 \
     # Dashboard
     streamlit>=1.45.0 \
     # Parallel computing
     "dask[complete]>=2025.1.0" \
+    dask-labextension>=7.0.0 \
     # Data access
     datasets>=3.0.0 \
     kaggle \
@@ -72,6 +75,7 @@ COPY --chown=${NB_UID}:${NB_GID} notebooks/ /home/jovyan/work/notebooks/
 COPY --chown=${NB_UID}:${NB_GID} data/ /home/jovyan/work/data/
 
 # ===================================
-# Expose ports: Jupyter (8888) + Streamlit (8501)
+# Expose ports: Jupyter (8888) + Streamlit (8501) + Dask Dashboard (8787)
 # ===================================
-EXPOSE 8888 8501
+EXPOSE 8888 8501 8787
+
