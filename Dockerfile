@@ -37,6 +37,8 @@ RUN pip install --no-cache-dir \
     kaggle \
     # Machine Learning
     scikit-learn>=1.6.0 \
+    lightgbm>=4.5.0 \
+    joblib \
     # NLP
     transformers>=4.50.0 \
     # Geospatial

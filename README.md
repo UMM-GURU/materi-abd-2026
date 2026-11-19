@@ -29,6 +29,10 @@ kembali container:
 docker compose up
 ```
 
+> **Catatan (mulai Pertemuan 9):** Dockerfile telah diperbarui dengan paket
+> `lightgbm` dan `joblib`. Jika image sudah pernah dibangun sebelumnya, jalankan
+> ulang dengan `docker compose up --build` agar paket baru terinstal.
+
 ### Menjalankan file Pertemuan 1
 
 File `notebooks/P01_pengantar/01_pengantar_bigdata.py` sengaja disimpan sebagai file
@@ -87,9 +91,11 @@ bigdata-kuliah/
 │   ├── P01_pengantar/
 │   ├── P02_polars/
 │   └── ...
-└── data/               ← Taruh dataset di sini
-    ├── raw/
-    └── processed/
+├── data/               ← Taruh dataset di sini
+│   ├── raw/
+│   └── processed/
+├── tugas1-template/    ← Template Tugas 1 (lihat README di dalamnya)
+└── tugas2-template/    ← Template Tugas 2 (lihat README di dalamnya)
 ```
 
 ### Menjalankan Streamlit dari dalam Container
