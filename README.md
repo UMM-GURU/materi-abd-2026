@@ -100,10 +100,21 @@ bigdata-kuliah/
 
 ### Menjalankan Streamlit dari dalam Container
 
+Streamlit sudah terpasang di image Docker. Perintah `streamlit` **hanya ada di dalam container**, tidak di terminal laptop (Mac/Windows), sehingga ada dua cara menjalankannya.
+
+**Cara 1: Terminal JupyterLab** (buka http://localhost:8888 → *File → New → Terminal*):
 ```bash
-# Dari terminal JupyterLab:
+cd ~/work/notebooks/P10_streamlit
 streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 ```
+
+**Cara 2: Terminal laptop** (dari folder `bigdata-kuliah`, container harus sudah berjalan):
+```bash
+docker compose exec -w /home/jovyan/work/notebooks/P10_streamlit jupyter \
+    streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+```
+
+Buka **http://localhost:8501** di browser, lalu hentikan dengan `Ctrl+C`. Opsi `--server.address 0.0.0.0` wajib agar browser laptop dapat mengakses Streamlit di dalam container.
 
 ### Troubleshooting
 
